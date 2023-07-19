@@ -144,24 +144,24 @@ public class MainApp {
 			System.out.println("Descending");
 		}
 		printArray(arr);
+		System.out.println(isAscending);
 		boolean checkResult = true;
-		if (isAscending) {
-			for (int i = 1; i < arr.length - 1; i++) {
-				if (arr[i] < arr[i - 1] || arr[i] > arr[i + 1]) {
-					checkResult = false;
-					break;
-				}
-			}
-		} else {
-			for (int i = 1; i < arr.length - 1; i++) {
-				if (arr[i] > arr[i - 1] || arr[i] < arr[i + 1]) {
-					checkResult = false;
-					break;
-				}
+
+		for (int i = 0; i < arr.length - 1; i++) {
+			if ((arr[i] >= arr[i + 1]) == isAscending) {
+				checkResult = false;
+				break;
 			}
 		}
-		System.out.println(checkResult);
+		for (int i = 0; i < arr.length - 1; i++) {
+			if ((arr[i] <= arr[i + 1]) != isAscending) {
+				checkResult = false;
+				break;
+			}
+		}
+		System.out.println("Result - " + checkResult);
 	}
+
 
 	public static void reverseArray(int[] arr) { // Вывод "перевернутого" массива
 		System.out.println(" Initialized array:");
